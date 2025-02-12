@@ -1,0 +1,31 @@
+<div id="<%= dom_id opportunity %>" class= "account-info-container">
+  <p>
+    <strong>Name:</strong>
+    <%= opportunity.name %>
+  </p>
+
+  <p>
+    <strong>Amount:</strong>
+    <%= number_to_currency(opportunity.amount) %>
+  </p>
+
+  <p>
+    <strong>Account:</strong>
+    <%= opportunity.account.name if opportunity.account %> <!-- Show Account Name -->
+  </p>
+
+  <p>
+    <strong>Contact:</strong>
+    <%= "#{opportunity.contact.first_name} #{opportunity.contact.last_name}" if opportunity.contact %> <!-- Show Contact Name -->
+  </p>
+
+  <p>
+    <strong>Close Date:</strong>
+    <%= opportunity.close_date %> <!-- Show Date -->
+  </p>
+
+  <p>
+    <strong>Stage:</strong>
+    <%= opportunity.stage if opportunity.stage.present? %> <!-- Show Stage -->
+  </p>
+</div>

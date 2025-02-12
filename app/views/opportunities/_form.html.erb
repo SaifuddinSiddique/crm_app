@@ -1,0 +1,50 @@
+<div class= "account-info-container">
+ <%= form_with(model: opportunity) do |form| %>
+    <% if opportunity.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(opportunity.errors.count, "error") %> prohibited this opportunity from being saved:</h2>
+
+        <ul>
+          <% opportunity.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div>
+      <%= form.label :amount, style: "display: block" %>
+      <%= form.text_field :amount %>
+    </div>
+
+    <div>
+      <%= form.label :close_date, "Close Date", style: "display: block" %>
+      <%= form.date_field :close_date %>  <!-- Date Picker -->
+    </div>
+    <br>
+    <div>
+      <%= form.label :account_id, "Select Account", style: "display: block" %>
+      <%= form.collection_select :account_id, Account.all, :id, :name, { prompt: "Choose an account" } %>  <!-- Account Dropdown -->
+    </div>
+    <br>
+    <div>
+      <%= form.label :contact_id, "Select Contact", style: "display: block" %>
+      <%= form.collection_select :contact_id, Contact.all, :id, ->(c) { "#{c.first_name} #{c.last_name}" }, { prompt: "Choose a contact" } %>
+    </div>
+    <br>
+    <div>
+      <%= form.label :stage, "Stage", style: "display: block" %>
+      <%= form.number_field :stage, step: 1, min: 1 %>  <!-- Stage Number Input -->
+    </div>
+    <br>
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
