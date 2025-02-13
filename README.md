@@ -10,7 +10,7 @@ The application uses Devise for authentication and ActiveAdmin for admin panel m
 
 1. Clone the Repository
 
- git clone https://github.com/Gaurav-dev-04/crm_app.git
+ git clone https://github.com/SaifuddinSiddique/crm_app.git
  cd crm_app
 
 2. Install Dependencies
